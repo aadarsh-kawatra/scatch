@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const db = require("./config/connect");
 
 const app = express();
 app.use(express.json());

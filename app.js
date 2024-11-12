@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+require("dotenv").config();
 
 const db = require("./config/connect");
 const ownerRouter = require("./routes/owner-router");

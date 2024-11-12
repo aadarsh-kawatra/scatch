@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const debuger = require("debug")("dev:mongoose");
 
 mongoose
-  .connect("mongodb://localhost:27017/scatch")
-  .then(() => console.log(`MongoDB Connected`))
-  .catch((err) => console.error(err));
+  .connect(process.env.MONGO_URI)
+  .then(() => debuger(`MongoDB Connected`))
+  .catch((err) => debuger(err));
 
 module.exports = mongoose.connection;

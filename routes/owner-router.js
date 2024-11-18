@@ -31,4 +31,9 @@ if (process.env.NODE_ENV === "development") {
   });
 }
 
+router.get("/admin", async (req, res) => {
+  const success = req.flash("success");
+  res.render("createproducts", { success });
+});
+
 module.exports = router;

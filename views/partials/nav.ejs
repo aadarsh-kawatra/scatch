@@ -1,0 +1,19 @@
+<nav class="w-full px-5 py-3 flex justify-between gap-4">
+  <h3 class="text-xl">Scatch</h3>
+  <% if (typeof loggedIn !== "undefined" && loggedIn) { %>
+  <ul class="flex gap-4">
+    <li>
+      <a href="">Shop</a>
+    </li>
+    <li>
+      <a href="">Cart</a>
+    </li>
+    <li>
+      <a href="">My Account</a>
+    </li>
+    <li>
+      <a href="/logout" class="text-red-700">Logout</a>
+    </li>
+  </ul>
+  <% } %>
+</nav>

@@ -9,11 +9,11 @@ const userSchema = mongoose.Schema({
   contact: { type: Number },
   cart: [
     {
-      product: { type: mongoose.Types.ObjectId, ref: "product" },
+      product: { type: mongoose.Schema.Types.ObjectId, ref: "product" },
       quantity: { type: Number },
     },
   ],
-  orders: [{ type: mongoose.Types.ObjectId, ref: "order" }],
+  orders: [{ type: mongoose.Schema.Types.ObjectId, ref: "order" }],
 });
 
 const userModel = mongoose.model("user", userSchema);

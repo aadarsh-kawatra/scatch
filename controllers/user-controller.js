@@ -54,3 +54,26 @@ module.exports.loginUser = async (req, res) => {
     return res.redirect("/");
   }
 };
+
+module.exports.addToCart = async (req, res) => {
+  const { email } = req._user;
+  const { id: product_id } = req.params;
+  try {
+    const user = await userModel.findOne({ email });
+    const cartIndex = user.cart.findIndex(
+      (ele) => ele.product.toString() === product_id
+    );
+    if (cartIndex >= 0) {
+      user.cart.at(cartIndex).quantity++;
+    } else {
+      user.cart.push({ product: product_id, quantity: 1 });
+    }
+    await user.save();
+    req.flash("success", "Product added to Cart");
+    return res.redirect("/shop");
+  } catch (err) {
+    console.error(err.message);
+    req.flash("error", "Failed to add Cart");
+    return res.redirect("/shop");
+  }
+};

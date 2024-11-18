@@ -1,5 +1,5 @@
 const { verifyToken } = require("../utils/token");
-const userModel = require("../models/owner.model");
+const userModel = require("../models/user.model");
 
 async function isLoggedin(req, res, next) {
   if (!req.cookies.token) {

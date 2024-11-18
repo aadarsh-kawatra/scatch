@@ -2,7 +2,19 @@
 <html lang="en">
   <%- include('./partials/header') %>
   <body>
-    <%- include('./partials/nav') %>
+    <%- include('./partials/nav') %> <% if(success.length>0){ %>
+    <div
+      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500"
+    >
+      <span class="inline-block mt-1 mb-1 text-white"> <%= success %> </span>
+    </div>
+    <% } %><% if(error.length>0){ %>
+    <div
+      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500"
+    >
+      <span class="inline-block mt-1 mb-1 text-white"> <%= error %> </span>
+    </div>
+    <% } %>
     <div class="w-full h-screen flex items-start px-20 py-20">
       <div class="basis-[25%] flex h-screen flex-col items-start">
         <div class="flex items-center gap-2">
@@ -47,7 +59,7 @@
               </div>
               <a
                 class="min-w-7 h-7 flex items-center justify-center rounded-full bg-white"
-                href=""
+                href="/addToCard/<%= product._id %>"
               >
                 <i class="ri-add-line text-black"></i>
               </a>
